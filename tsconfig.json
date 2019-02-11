@@ -1,29 +1,27 @@
 {
+  "extends": "../../tools/tsconfig.base",
   "compilerOptions": {
-//    "experimentalDecorators": true,
-//    "emitDecoratorMetadata": true,
-    "declaration": true,
-    "outDir": "dist",
-    "declarationDir": "dist/typings",
     "baseUrl": ".",
-    "target": "es2015",
-    "module": "commonjs",
-    "types": [
-      "node"
-    ],
-    "lib": [
-      "es2015",
-      "dom"
-    ],
+    "outDir": "./dist/esm",
+    "declarationDir": "./dist/typings",
+    "noEmitOnError": true,
+    "composite": true,
     "paths": {
-      "@so/di": [
-        "../di"
+      "@hypertype/core": [
+        "../core"
       ]
     }
   },
-  "exclude": [
-    "dist",
-    "node_modules"
+  "references": [
+    {
+      "path": "../core"
+    }
   ],
-  "compileOnSave": true
+  "include": [
+    "**/*.ts"
+  ],
+  "exclude": [
+    "tests",
+    "dist"
+  ]
 }

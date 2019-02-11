@@ -1,4 +1,4 @@
-import {Container} from "@so/di";
+import {Container} from "@hypertype/core";
 
 export const SoContainer = new Container();
 

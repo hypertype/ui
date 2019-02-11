@@ -1,5 +1,5 @@
 import {UI} from "./src/ui";
-import {Container} from "@so/di";
+import {Container} from "@hypertype/core";
 import HyperHTMLElement from "hyperhtml-element";
 
 export * from "./src/component";

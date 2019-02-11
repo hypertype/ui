@@ -1,5 +1,5 @@
 import HyperHTMLElement from "hyperhtml-element";
-import {Observable, Subject} from "./rx";
+import {Observable, Subject} from "@hypertype/core";
 import {UI} from "./ui";
 import {importStyle} from "./import-styles";
 

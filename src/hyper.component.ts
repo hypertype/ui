@@ -1,4 +1,5 @@
-import {filter, first, map, NEVER, Observable, of, ReplaySubject, scan, startWith, Subject, withLatestFrom} from "./rx";
+import {filter, first, map, NEVER, Observable, of,
+    ReplaySubject, scan, startWith, Subject, withLatestFrom} from "@hypertype/core";
 
 export abstract class HyperComponent<TState = any, TEvents = any> {
 

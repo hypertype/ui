@@ -1,4 +1,4 @@
-import {Container} from "@so/di";
+import {Container} from "@hypertype/core";
 import {defineComponents} from "./component";
 
 export class UI {
