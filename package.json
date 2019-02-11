@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/hypertype/ui/issues"
   },
-  "homepage": "https://github.com/hypertype/ui#readme"
+  "homepage": "https://github.com/hypertype/ui#readme",
+  "dependencies": {
+    "@hypertype/core": "^1.2.2",
+    "hyperhtml-element": "^3.6.0"
+  }
 }
