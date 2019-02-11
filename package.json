@@ -2,7 +2,8 @@
   "name": "@hypertype/ui",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/esm/index.js",
+  "typings": "dist/typings/index.d.ts",
   "scripts": {
     "build": "tsc -b --watch"
   },
