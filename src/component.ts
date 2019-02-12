@@ -1,4 +1,4 @@
-import HyperHTMLElement from "hyperhtml-element";
+import HyperHTMLElement from "hyperhtml-element/esm";
 import {Observable, Subject} from "@hypertype/core";
 import {UI} from "./ui";
 import {importStyle} from "./import-styles";
