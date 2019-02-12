@@ -23,8 +23,5 @@
   },
   "dependencies": {
     "hyperhtml-element": "^3.6.0"
-  },
-  "bundledDependencies": [
-    "hyperhtml-element"
-  ]
+  }
 }
