@@ -6,7 +6,7 @@
   "typings": "dist/typings/index.d.ts",
   "scripts": {
     "build": "tsc -b --watch",
-    "deploy": "npm vesion patch && npm publish"
+    "deploy": "npm version patch && npm publish"
   },
   "repository": {
     "type": "git",
