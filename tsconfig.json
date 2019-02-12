@@ -6,9 +6,8 @@
     "declarationDir": "./dist/typings",
     "noEmitOnError": true,
     "composite": true,
+    "target": "es5",
     "moduleResolution": "node",
-    "target": "es2016",
-    "module": "es2015",
     "paths": {
       "@hypertype/core": [
         "../core"
