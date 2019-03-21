@@ -2,8 +2,8 @@
   "name": "@hypertype/ui",
   "version": "1.2.8",
   "description": "",
-  "module": "dist/esm/index.js",
-  "main": "dist/bundle/index.js",
+  "main": "dist/esm/index.js",
+  "bundle": "dist/bundle/index.js",
   "typings": "dist/typings/index.d.ts",
   "scripts": {
     "bundle": "hypertype",
@@ -27,11 +27,11 @@
     "@hypertype/core": "^1.2.3"
   },
   "devDependencies": {
-    "@hypertype/core": "^1.2.3"
+    "@hypertype/core": "^1.2.6"
   },
   "dependencies": {
-    "@hypertype/tools": "^1.0.13",
-    "hyperhtml-element": "^3.6.0",
-    "webpack": "^4.29.3"
+    "@hypertype/tools": "^1.0.18",
+    "hyperhtml-element": "latest",
+    "webpack": "^4.29.6"
   }
 }

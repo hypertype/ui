@@ -6,8 +6,7 @@
     "declarationDir": "./dist/typings",
     "noEmitOnError": true,
     "composite": true,
-    "target": "es5",
-    "moduleResolution": "node",
+    "target": "es6",
     "paths": {
       "@hypertype/core": [
         "../core"
@@ -20,7 +19,9 @@
     }
   ],
   "include": [
-    "**/*.ts"
+    "node_modules/hyperhtml-element",
+    "**/*.ts",
+    "**/*.js"
   ],
   "exclude": [
     "tests",

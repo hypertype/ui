@@ -39,5 +39,5 @@ export abstract class HyperComponent<TState = any, TEvents = any> {
         first()
     );
 
-    protected Events: TEvents;
+    protected Events: Partial<TEvents>;
 }
