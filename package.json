@@ -34,5 +34,10 @@
     "@hypertype/tools": "^1.0.25",
     "hyperhtml-element": "latest",
     "webpack": "^4.29.6"
+  },
+  "hypertype": {
+    "lib": {
+      "index": "index.ts"
+    }
   }
 }
