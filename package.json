@@ -25,15 +25,14 @@
   },
   "homepage": "https://github.com/hypertype/ui#readme",
   "peerDependencies": {
-    "@hypertype/core": "^1.2.3"
+    "@hypertype/core": "^2.0.0"
   },
   "devDependencies": {
-    "@hypertype/core": "^1.2.6"
+    "@hypertype/tools": "^2.0.0"
   },
   "dependencies": {
-    "@hypertype/tools": "^1.0.25",
-    "hyperhtml-element": "latest",
-    "webpack": "^4.29.6"
+    "@hypertype/core": "^2.0.0",
+    "hyperhtml-element": "latest"
   },
   "hypertype": {
     "lib": {
