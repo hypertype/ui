@@ -1,5 +1,18 @@
-import {filter, first, map, NEVER, Observable, of,
-    ReplaySubject, scan, startWith, Subject, withLatestFrom} from "@hypertype/core";
+import {
+    filter,
+    first,
+    map,
+    NEVER,
+    Observable,
+    of,
+    ReplaySubject,
+    scan,
+    shareReplay,
+    startWith,
+    Subject,
+    switchMap,
+    withLatestFrom
+} from "@hypertype/core";
 
 export abstract class HyperComponent<TState = any, TEvents = any> {
 
@@ -19,6 +32,20 @@ export abstract class HyperComponent<TState = any, TEvents = any> {
         startWith({}),
     );
 
+    protected ClientRect$ = this.Element$.pipe(
+        switchMap(el => new Observable<ClientRect>(subscr => {
+            // @ts-ignore
+            const observer = new ResizeObserver(entries => {
+                subscr.next(el.getBoundingClientRect())
+            }) as MutationObserver;
+            observer.observe(el);
+            return () => {
+                observer.disconnect();
+            };
+        })),
+        filter(rect => rect.width > 0 && rect.height > 0),
+        shareReplay(1)
+    );
     protected Render$ = new ReplaySubject();
 
     protected select<E extends Element = Element>(selector: string): Observable<E | null> {
