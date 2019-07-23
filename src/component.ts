@@ -1,5 +1,5 @@
 import HyperHTMLElement from "hyperhtml-element";
-import {Observable, ReplaySubject, Subject} from "@hypertype/core";
+import {Observable, ReplaySubject, Subject, takeUntil} from "@hypertype/core";
 import {UI} from "./ui";
 import {importStyle} from "./import-styles";
 
@@ -99,10 +99,14 @@ export function Component(info: {
                 });
                 // @ts-ignore
                 this.component._elementSubject$.next(this);
-                this.component.State$.subscribe(state => {
+                this.component.State$.pipe(
+                    takeUntil(this.component._disconnect$.asObservable())
+                ).subscribe(state => {
                     this.renderState(state);
                 });
-                this.component.Actions$.subscribe();
+                this.component.Actions$.pipe(
+                    takeUntil(this.component._disconnect$.asObservable())
+                ).subscribe();
                 // this.component.created();
             }
 
@@ -129,6 +133,11 @@ export function Component(info: {
                 }
                 this.component._attributesSubject$.next({name, value: curr});
             }
+
+            disconnectedCallback(){
+                this.component._disconnect$.next();
+                this.component._disconnect$.complete();
+            }
         };
         if (UI.container) {
             elementConstructor.define(info.name);
@@ -139,6 +148,7 @@ export function Component(info: {
 }
 
 interface ComponentExtended<TState, TEvents> {
+    _disconnect$: ReplaySubject<void>;
     element: HyperHTMLElement;
     _attributesSubject$: Subject<{ name, value }>;
     _eventsSubject$: Subject<{ args: any; type: string }>;

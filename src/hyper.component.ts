@@ -23,6 +23,7 @@ export abstract class HyperComponent<TState = any, TEvents = any> {
     private _attributesSubject$ = new ReplaySubject<{ name, value }>();
     private _eventsSubject$ = new ReplaySubject<{ args: any; type: keyof TEvents; }>();
     private _elementSubject$: Subject<HTMLElement> = new ReplaySubject<HTMLElement>();
+    private _disconnect$: ReplaySubject<void> = new ReplaySubject<void>();
     protected Element$: Observable<HTMLElement> = this._elementSubject$.asObservable().pipe(
         filter(x => !!x)
     );
@@ -39,6 +40,7 @@ export abstract class HyperComponent<TState = any, TEvents = any> {
                 subscr.next(el.getBoundingClientRect())
             }) as MutationObserver;
             observer.observe(el);
+            this._disconnect$.asObservable().subscribe(() => observer.disconnect());
             return () => {
                 observer.disconnect();
             };
