@@ -99,6 +99,10 @@ export function Component(info: {
                 });
                 // @ts-ignore
                 this.component._elementSubject$.next(this);
+                // this.component.created();
+            }
+
+            connectedCallback() {
                 this.component.State$.pipe(
                     takeUntil(this.component._disconnect$.asObservable())
                 ).subscribe(state => {
@@ -107,7 +111,6 @@ export function Component(info: {
                 this.component.Actions$.pipe(
                     takeUntil(this.component._disconnect$.asObservable())
                 ).subscribe();
-                // this.component.created();
             }
 
             getEventHandler = type => mapping => {
@@ -134,9 +137,8 @@ export function Component(info: {
                 this.component._attributesSubject$.next({name, value: curr});
             }
 
-            disconnectedCallback(){
+            disconnectedCallback() {
                 this.component._disconnect$.next();
-                this.component._disconnect$.complete();
             }
         };
         if (UI.container) {
