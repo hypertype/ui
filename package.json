@@ -7,7 +7,7 @@
   "bundle": "dist/bundle/index.js",
   "typings": "dist/typings/index.d.ts",
   "scripts": {
-    "bundle": "hypertype",
+    "bundle": "hypertype lib --watch",
     "build": "tsc -b --watch",
     "deploy": "npm version patch && npm publish"
   },
@@ -28,15 +28,17 @@
     "@hypertype/core": "^2.0.0"
   },
   "devDependencies": {
-    "@hypertype/tools": "^2.0.0"
-  },
-  "dependencies": {
     "@hypertype/core": "^2.0.0",
+    "@hypertype/tools": "^2.0.6",
     "hyperhtml-element": "latest"
   },
+  "dependencies": {},
+  "bundledDependencies": [
+    "hyperhtml-element"
+  ],
   "hypertype": {
     "lib": {
-      "index": "index.ts"
+      "index": "./dist/esm/index.js"
     }
   }
 }
