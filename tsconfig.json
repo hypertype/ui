@@ -6,7 +6,7 @@
     "declarationDir": "./dist/typings",
     "noEmitOnError": true,
     "composite": true,
-    "target": "es6",
+    "target": "es5",
     "paths": {
       "@hypertype/core": [
         "../core"
