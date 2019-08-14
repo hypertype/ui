@@ -1,4 +1,4 @@
-import * as HyperHTMLElementJS from "hyperhtml-element/es5.js";
+import * as HyperHTMLElementJS from "./hyperhtml.element.es5.js";
 import HyperHTMLElementType from "hyperhtml-element";
 import {Observable, ReplaySubject, Subject, takeUntil} from "@hypertype/core";
 import {UI} from "./ui";
