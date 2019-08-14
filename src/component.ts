@@ -53,7 +53,7 @@ export function Component(info: {
     return (target) => {
         let Id = 0;
         importStyle(info.style, target.name);
-        const elementConstructor = class extends HyperHTMLElement {
+        class ProxyHTML extends HyperHTMLElement {
 
             constructor() {
                 super();
@@ -142,9 +142,9 @@ export function Component(info: {
             }
         };
         if (UI.container) {
-            elementConstructor.define(info.name);
+            ProxyHTML.define(info.name);
         } else {
-            definitions.push(() => elementConstructor.define(info.name))
+            definitions.push(() => ProxyHTML.define(info.name))
         }
     }
 }
