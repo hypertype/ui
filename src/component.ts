@@ -1,10 +1,8 @@
-import * as HyperHTMLElementJS from "./hyperhtml.element.es5.js";
-import HyperHTMLElementType from "hyperhtml-element";
+import {HyperHTMLElement} from "./hyperhtml.element";
 import {Observable, ReplaySubject, Subject, takeUntil} from "@hypertype/core";
 import {UI} from "./ui";
 import {importStyle} from "./import-styles";
 
-const HyperHTMLElement: typeof HyperHTMLElementType = HyperHTMLElementJS;
 const definitions: Function[] = [];
 
 export function defineComponents() {
@@ -152,7 +150,7 @@ export function Component(info: {
 
 interface ComponentExtended<TState, TEvents> {
     _disconnect$: ReplaySubject<void>;
-    element: HyperHTMLElementType;
+    element: HyperHTMLElement;
     _attributesSubject$: Subject<{ name, value }>;
     _eventsSubject$: Subject<{ args: any; type: string }>;
     _elementSubject$: Subject<HTMLElement>;
