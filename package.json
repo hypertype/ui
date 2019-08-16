@@ -9,6 +9,9 @@
   "scripts": {
     "bundle": "hypertype lib --watch",
     "bundle:prod": "hypertype lib --prod",
+    "build:es5": "tsc -b --watch tsconfig.es5.json",
+    "bundle:es5": "hypertype es5 --watch",
+    "bundle:es5:prod": "hypertype es5 --prod",
     "build": "tsc -b --watch",
     "deploy": "npm version patch && npm publish"
   },
@@ -26,12 +29,14 @@
   },
   "homepage": "https://github.com/hypertype/ui#readme",
   "peerDependencies": {
-    "@hypertype/core": "^2.0.0"
+    "@hypertype/core": "latest"
   },
   "devDependencies": {
-    "@hypertype/core": "^2.0.0",
-    "@hypertype/tools": "^2.0.6",
-    "hyperhtml-element": "latest"
+    "@hypertype/core": "latest",
+    "@hypertype/tools": "latest",
+    "@types/node": "^12.7.2",
+    "hyperhtml-element": "latest",
+    "typescript": "^3.5.3"
   },
   "dependencies": {},
   "bundledDependencies": [
@@ -39,7 +44,12 @@
   ],
   "hypertype": {
     "lib": {
-      "index": "./dist/esm/index.js"
+      "index": "./dist/esm/index.js",
+      "type": "lib"
+    },
+    "es5": {
+      "index": "./dist/es5/index.js",
+      "target": "index.es5.js"
     }
   }
 }
