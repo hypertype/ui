@@ -72,7 +72,7 @@ export function Component(info: {
             private eventHandlers = {};
 
             renderState(state) {
-                info.template.call(this, this.html.bind(this), state, this.handlerProxy);
+                info.template.call(this, this.html, state, this.handlerProxy);
                 this.component.Render$.next();
             }
 
@@ -88,6 +88,7 @@ export function Component(info: {
                         Object.defineProperty(this, key, desrc);
                     }
                 }
+                this.html = this.html.bind(this);
                 // this.component.element = this;
                 // this.component.element = this;
                 this.component['id'] = this._id;
