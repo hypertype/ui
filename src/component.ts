@@ -52,6 +52,7 @@ export function Component(info: {
     return (target) => {
         let Id = 0;
         importStyle(info.style, target.name);
+
         class ProxyHTML extends HyperHTMLElement {
 
             constructor() {
@@ -99,6 +100,11 @@ export function Component(info: {
                 });
                 // @ts-ignore
                 this.component._elementSubject$.next(this);
+
+                const children = [].slice.call(this.children) as (HTMLElement | SVGElement)[];
+                if (children.length)
+                    this.component._injectedContent$.next(children);
+                this.component._injectedContent$.complete();
                 // this.component.created();
             }
 
@@ -155,7 +161,7 @@ interface ComponentExtended<TState, TEvents> {
     _attributesSubject$: Subject<{ name, value }>;
     _eventsSubject$: Subject<{ args: any; type: string }>;
     _elementSubject$: Subject<HTMLElement>;
-
+    _injectedContent$: Subject<(HTMLElement | SVGElement)[]>
     State$: Observable<TState>;
     Actions$: Observable<{ type: string; payload?: any }>;
     Events: TEvents;

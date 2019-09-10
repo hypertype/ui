@@ -57,16 +57,8 @@ export abstract class HyperComponent<TState = any, TEvents = any> {
         );
     }
 
-
-    protected InjectedContent$ = this.Element$.pipe(
-        filter(element => element.childNodes.length > 0),
-        map(element => {
-            const children = [].slice.call(element.childNodes);
-            children.forEach(c => element.removeChild(c));
-            return children;
-        }),
-        first()
-    );
+    private _injectedContent$ = new ReplaySubject<(HTMLElement|SVGElement)[]>();
+    protected InjectedContent$ = this._injectedContent$.asObservable();
 
     protected Events: Partial<TEvents>;
 }
