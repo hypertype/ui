@@ -128,9 +128,9 @@ lightercollective@^0.2.0:
   integrity sha512-zgFCDiUQQOjislj+1tX7zDxZbgVB6Qi9BSmos41oZcxHdkTveVDzHW0Y3TisNZCWuBN1h0e0xrjkNoLtPkLsUg==
 
 luxon@^1.11.1:
-  version "1.11.2"
-  resolved "https://registry.yarnpkg.com/luxon/-/luxon-1.11.2.tgz#0073566e8b6f493d68891c6b871dd72196547c24"
-  integrity sha512-dD6sJotzprPhqJAp9eZbc1y1cc0CMiwRabsaEfFBJT2lRkWdOqJe3QmxB8GNwjOHZ6fciuGiLK3htgxZgphGxA==
+  version "1.28.1"
+  resolved "https://registry.yarnpkg.com/luxon/-/luxon-1.28.1.tgz#528cdf3624a54506d710290a2341aa8e6e6c61b0"
+  integrity sha512-gYHAa180mKrNIUJCbwpmD0aTu9kV0dREDrwNnuyFAsO1Wt0EVYSZelPnJlbj9HplzXX/YWXHFTL45kvZ53M0pw==
 
 pako@^1.0.8:
   version "1.0.8"
